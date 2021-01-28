@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/etc/page_configuration.xsd">
+<head>
+    <css src="Alex_GalleryProdotti::css/galleryprodotti.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <referenceContainer name="content">
+        <block class="Magento\Framework\View\Element\Template" name="alex_index_index" template="Alex_GalleryProdotti::helloworld.phtml">
+            <arguments>
+                <argument name="viewModel" xsi:type="object">Alex\GalleryProdotti\ViewModel\GalleryProdotti</argument>
+            </arguments>
+        </block>
+    </referenceContainer>
+</body>
+</page>

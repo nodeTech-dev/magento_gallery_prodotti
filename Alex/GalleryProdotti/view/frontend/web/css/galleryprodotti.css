@@ -1,0 +1,15 @@
+.gallery {
+    width: 100%;
+    display: grid;
+    gap: 30px 30px;
+    grid-template-columns: repeat(auto-fill, 120px);
+    grid-template-rows: repeat(auto-fill, 180px);
+}
+
+.gallery-cell {
+    width: 120px;
+    height: 180px;
+    border: 1px solid black;
+    justify-content: center;
+    text-align: center;
+}

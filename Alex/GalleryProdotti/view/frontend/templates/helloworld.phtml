@@ -1,0 +1,31 @@
+<?php
+
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Alex\GalleryProdotti\ViewModel\GalleryProdotti $viewModel */
+
+$viewModel = $block->getData('viewModel');
+$gallery = $viewModel->getGallery();
+
+echo '<h1>Gallery Prodotti</h1>';
+
+/* Per ogni categoria, viene creato un grid per elencare i prodotti correlati */
+foreach($gallery as $category => $productCollection) {
+    echo '<h3>' . $category . '</h3><br />';
+    echo '<div class="gallery">';
+    foreach($productCollection as $product) {
+        //Ottiene thumbnail
+        $thumbnailUrl = $this->helper('Magento\Catalog\Helper\Image')
+                ->init($product, 'product_base_image')
+                ->constrainOnly(true)
+                ->keepAspectRatio(true)
+                ->keepTransparency(true)
+                ->keepFrame(false)
+                ->resize(100, 100)->getUrl();
+        echo '<div class="gallery-cell">';
+        echo '<a href="' . $product->getProductUrl() . '">';
+        echo '<img src="' . $thumbnailUrl . '" title="' . $product->getName() . '">';
+        echo $product->getName() . '</a></div>';
+    }
+    echo '</div>';
+}
+?>
